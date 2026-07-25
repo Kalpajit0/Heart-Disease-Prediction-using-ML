@@ -1,0 +1,24 @@
+.analysis-button {
+    transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.analysis-button:hover {
+    background: var(--blue-dark);
+    box-shadow: 0 16px 30px rgba(8, 63, 136, 0.28);
+    transform: translateY(-1px);
+}
+
+.field label::after {
+    content: " *";
+    color: #d82d2d;
+}
+
+.brand-icon,
+.status-icon,
+.result-icon {
+    user-select: none;
+}
+
+select {
+    cursor: pointer;
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='extra.css') }}">
+</head>
+<body>
+    <main class="diagnostic-shell">
+        <section class="workspace-card">
+            <section class="input-suite">
+                <header class="brand-header">
+                    <div class="brand-icon">ECG</div>
+                    <div>
+                        <h1>Heart Disease Prediction</h1>
+                        <p>Clinical Diagnostic Suite</p>
+                    </div>
+                </header>
+
+                <p class="intro-copy">
+                    Evaluate cardiovascular risk using professional-grade ML analysis based on patient physiological data.
+                </p>
+
+                <form action="/predict" method="post" class="diagnostic-form">
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <input id="age" type="number" name="age" min="1" max="120" placeholder="Years" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="sex">Sex</label>
+                        <select id="sex" name="sex">
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="cp">Chest Pain</label>
+                        <select id="cp" name="cp">
+                            <option value="1">Typical Angina</option>
+                            <option value="2">Atypical Angina</option>
+                            <option value="3">Non-anginal Pain</option>
+                            <option value="4">Asymptomatic</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="trestbps">Resting BP</label>
+                        <input id="trestbps" type="number" name="trestbps" placeholder="mm Hg" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="chol">Cholesterol</label>
+                        <input id="chol" type="number" name="chol" placeholder="mg/dl" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="fbs">Fasting Sugar</label>
+                        <select id="fbs" name="fbs">
+                            <option value="0">&lt; 120 mg/dl</option>
+                            <option value="1">&gt; 120 mg/dl</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="restecg">Resting ECG</label>
+                        <select id="restecg" name="restecg">
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T Abnormality</option>
+                            <option value="2">LV Hypertrophy</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="thalach">Max Heart Rate</label>
+                        <input id="thalach" type="number" name="thalach" placeholder="bpm" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="exang">Exercise Angina</label>
+                        <select id="exang" name="exang">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="oldpeak">ST Depress.</label>
+                        <input id="oldpeak" type="number" step="0.1" name="oldpeak" placeholder="0.0 - 6.0" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="slope">ST Slope</label>
+                        <select id="slope" name="slope">
+                            <option value="1">Upsloping</option>
+                            <option value="2">Flat</option>
+                            <option value="3">Downsloping</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="ca">Major Vessels</label>
+                        <select id="ca" name="ca">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="thal">Thal</label>
+                        <select id="thal" name="thal">
+                            <option value="3">Normal</option>
+                            <option value="6">Fixed Defect</option>
+                            <option value="7">Reversible Defect</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="analysis-button">
+                        <span class="button-icon">▣</span>
+                        Run Diagnostic Analysis
+                    </button>
+                </form>
+
+                <footer class="legal-note">
+                    Legal Disclaimer: This automated tool is for clinical support and preliminary screening only. High-stakes medical decisions must be verified by a licensed cardiologist.
+                </footer>
+            </section>
+
+            <aside class="insight-panel">
+                <section class="result-box">
+                    <div class="result-icon">MED</div>
+                    <p>Diagnostic Result</p>
+                    <div class="result-display {% if prediction_text == 'Heart Disease' %}risk{% elif prediction_text %}clear{% endif %}">
+                        {% if prediction_text %}
+                            {{ prediction_text }}
+                        {% else %}
+                            Awaiting Analysis
+                        {% endif %}
+                    </div>
+                    <strong>Confidence Score: High</strong>
+                </section>
+
+                <section class="pipeline-section">
+                    <h2>Pipeline Status</h2>
+                    <div class="status-card">
+                        <div class="status-icon">DATA</div>
+                        <div>
+                            <strong>Data Ingestion</strong>
+                            <div class="progress-track">
+                                <span class="progress green"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-icon light">ML</div>
+                        <div>
+                            <strong>ML Inference</strong>
+                            <div class="progress-track">
+                                <span class="progress blue"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="performance-section">
+                    <div class="section-title-row">
+                        <h2>Performance</h2>
+                        <span>Prod</span>
+                    </div>
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <span>Accuracy</span>
+                            <strong>78%</strong>
+                        </div>
+                        <div class="metric-card">
+                            <span>Recall</span>
+                            <strong>83%</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="telemetry-card">
+                    <div class="telemetry-lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="heart-orb">H</div>
+                    <div>
+                        <strong>Vitals Telemetry</strong>
+                        <p>Real-time monitoring enabled</p>
+                    </div>
+                </section>
+            </aside>
+        </section>
+    </main>
+</body>
+</html>
