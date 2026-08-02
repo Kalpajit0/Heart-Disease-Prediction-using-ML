@@ -4,7 +4,7 @@
 
 .analysis-button:hover {
     background: var(--blue-dark);
-    box-shadow: 0 16px 30px rgba(8, 63, 136, 0.28);
+    box-shadow: 0 16px 30px rgba(59, 130, 246, 0.35);
     transform: translateY(-1px);
 }
 

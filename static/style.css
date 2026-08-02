@@ -1,12 +1,16 @@
 :root {
-    --blue: #083f88;
-    --blue-dark: #07377a;
-    --blue-soft: #eaf1fb;
-    --text: #2c3442;
-    --muted: #7a8291;
-    --line: #d5deea;
-    --panel: #f0f3f7;
-    --success: #28c76f;
+    --bg: #0F172A;
+    --card: #1E293B;
+    --card-alt: #16213A;
+    --blue: #3B82F6;
+    --blue-dark: #2563EB;
+    --blue-soft: #1E3A5F;
+    --accent: #22C55E;
+    --accent-soft: #14301F;
+    --text: #F8FAFC;
+    --muted: #94A3B8;
+    --line: #334155;
+    --success: #22C55E;
 }
 
 * {
@@ -19,10 +23,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text);
     background:
-        linear-gradient(rgba(235, 240, 247, 0.86), rgba(235, 240, 247, 0.86)),
-        linear-gradient(90deg, #dfe6ef 2px, transparent 2px),
-        linear-gradient(#dfe6ef 2px, transparent 2px);
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+        linear-gradient(90deg, #1B2941 2px, transparent 2px),
+        linear-gradient(#1B2941 2px, transparent 2px);
     background-size: auto, 168px 168px, 168px 168px;
+    background-color: var(--bg);
 }
 
 .diagnostic-shell {
@@ -38,8 +43,9 @@ body {
     grid-template-columns: minmax(0, 1fr) 420px;
     overflow: hidden;
     border-radius: 18px;
-    background: #ffffff;
-    box-shadow: 0 28px 90px rgba(20, 47, 86, 0.16);
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
 }
 
 .input-suite {
@@ -73,14 +79,14 @@ p {
 
 h1 {
     margin-bottom: 4px;
-    color: var(--blue);
+    color: var(--text);
     font-size: 25px;
     line-height: 1.1;
 }
 
 .brand-header p {
     margin-bottom: 0;
-    color: #878d99;
+    color: var(--muted);
     font-size: 21px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -89,7 +95,7 @@ h1 {
 .intro-copy {
     max-width: 740px;
     margin-bottom: 58px;
-    color: #4c5360;
+    color: var(--muted);
     font-size: 22px;
     line-height: 1.55;
 }
@@ -107,7 +113,7 @@ h1 {
 }
 
 label {
-    color: #424956;
+    color: #CBD5E1;
     font-size: 21px;
     font-weight: 800;
 }
@@ -116,21 +122,21 @@ input,
 select {
     width: 100%;
     height: 62px;
-    border: 2px solid #c9d1df;
+    border: 2px solid var(--line);
     border-radius: 6px;
     padding: 0 14px;
-    color: #222833;
-    background: #f8faff;
+    color: var(--text);
+    background: var(--card-alt);
     font-size: 23px;
 }
 
 input::placeholder {
-    color: #788293;
+    color: #64748B;
 }
 
 input:focus,
 select:focus {
-    outline: 4px solid rgba(8, 63, 136, 0.14);
+    outline: 4px solid rgba(59, 130, 246, 0.25);
     border-color: var(--blue);
 }
 
@@ -142,7 +148,7 @@ select:focus {
     border-radius: 9px;
     color: #ffffff;
     background: var(--blue);
-    box-shadow: 0 12px 24px rgba(8, 63, 136, 0.23);
+    box-shadow: 0 12px 24px rgba(59, 130, 246, 0.28);
     font-size: 23px;
     cursor: pointer;
 }
@@ -154,8 +160,8 @@ select:focus {
 .legal-note {
     margin-top: 124px;
     padding-top: 34px;
-    border-top: 1px solid #d8dee8;
-    color: #7a8290;
+    border-top: 1px solid var(--line);
+    color: #64748B;
     font-size: 15px;
     font-style: italic;
     line-height: 1.55;
@@ -164,17 +170,17 @@ select:focus {
 
 .insight-panel {
     padding: 44px;
-    background: #edf1f6;
+    background: var(--card-alt);
 }
 
 .result-box {
     display: grid;
     justify-items: center;
     padding: 32px;
-    border: 3px solid #cbd7e6;
+    border: 3px solid var(--line);
     border-radius: 20px;
-    background: #ffffff;
-    box-shadow: 0 4px 10px rgba(20, 47, 86, 0.08);
+    background: var(--card);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
@@ -186,14 +192,14 @@ select:focus {
     margin-bottom: 28px;
     border-radius: 14px;
     color: var(--blue);
-    background: #e2e8f1;
+    background: var(--blue-soft);
     font-size: 15px;
     font-weight: 800;
 }
 
 .result-box p {
     margin-bottom: 18px;
-    color: #838995;
+    color: var(--muted);
     font-size: 24px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -205,27 +211,27 @@ select:focus {
     display: grid;
     place-items: center;
     margin-bottom: 22px;
-    border: 1px solid #d4dbe6;
+    border: 1px solid var(--line);
     border-radius: 9px;
-    color: var(--blue);
-    background: #f8faff;
+    color: var(--text);
+    background: var(--card-alt);
     font-size: 24px;
 }
 
 .result-display.risk {
-    color: #991b1b;
-    background: #fff1f2;
-    border-color: #fecdd3;
+    color: #FCA5A5;
+    background: #3F1414;
+    border-color: #7F1D1D;
 }
 
 .result-display.clear {
-    color: #075e48;
-    background: #ecfdf5;
-    border-color: #a7f3d0;
+    color: #86EFAC;
+    background: var(--accent-soft);
+    border-color: #166534;
 }
 
 .result-box strong {
-    color: #4b5361;
+    color: var(--muted);
     font-size: 16px;
 }
 
@@ -237,7 +243,7 @@ select:focus {
 .pipeline-section h2,
 .section-title-row h2 {
     margin-bottom: 22px;
-    color: var(--blue);
+    color: var(--text);
     font-size: 24px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -251,7 +257,8 @@ select:focus {
     margin-bottom: 22px;
     padding: 18px;
     border-radius: 9px;
-    background: #ffffff;
+    background: var(--card);
+    border: 1px solid var(--line);
 }
 
 .status-icon {
@@ -267,20 +274,21 @@ select:focus {
 }
 
 .status-icon.light {
-    background: #4d98ff;
+    background: var(--accent);
 }
 
 .status-card strong {
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
+    color: var(--text);
 }
 
 .progress-track {
     height: 8px;
     overflow: hidden;
     border-radius: 99px;
-    background: #dce2ea;
+    background: #0F172A;
 }
 
 .progress {
@@ -308,8 +316,8 @@ select:focus {
 .section-title-row span {
     padding: 8px 12px;
     border-radius: 3px;
-    color: #139148;
-    background: #dff5e8;
+    color: var(--accent);
+    background: var(--accent-soft);
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
@@ -324,20 +332,21 @@ select:focus {
 .metric-card {
     padding: 22px 18px;
     border-radius: 9px;
-    background: #ffffff;
+    background: var(--card);
+    border: 1px solid var(--line);
 }
 
 .metric-card span {
     display: block;
     margin-bottom: 8px;
-    color: #7d8491;
+    color: var(--muted);
     font-size: 13px;
     font-weight: 800;
     text-transform: uppercase;
 }
 
 .metric-card strong {
-    color: #164f80;
+    color: var(--blue);
     font-size: 28px;
     font-weight: 500;
 }
@@ -353,8 +362,8 @@ select:focus {
     padding: 22px;
     color: #ffffff;
     background:
-        linear-gradient(rgba(8, 63, 136, 0.34), rgba(8, 63, 136, 0.92)),
-        #4e9cca;
+        linear-gradient(rgba(37, 99, 235, 0.4), rgba(15, 23, 42, 0.95)),
+        #1E3A5F;
 }
 
 .telemetry-lines {
@@ -362,7 +371,7 @@ select:focus {
     inset: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    opacity: 0.22;
+    opacity: 0.18;
 }
 
 .telemetry-lines span {
@@ -374,7 +383,7 @@ select:focus {
     position: absolute;
     top: 22px;
     right: 34px;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.35);
     font-size: 78px;
     font-weight: 800;
 }
@@ -386,7 +395,7 @@ select:focus {
 
 .telemetry-card p {
     margin-bottom: 0;
-    color: #dcecff;
+    color: #CBD5E1;
 }
 
 @media (max-width: 1050px) {

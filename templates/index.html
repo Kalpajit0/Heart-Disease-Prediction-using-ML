@@ -12,15 +12,15 @@
         <section class="workspace-card">
             <section class="input-suite">
                 <header class="brand-header">
-                    <div class="brand-icon">ECG</div>
+                    <div class="brand-icon">🫀</div>
                     <div>
                         <h1>Heart Disease Prediction</h1>
-                        <p>Clinical Diagnostic Suite</p>
+                        <p>Machine Learning Intership Project</p>
                     </div>
                 </header>
 
                 <p class="intro-copy">
-                    Evaluate cardiovascular risk using professional-grade ML analysis based on patient physiological data.
+                    An intership project demonstrating the use of Machine learning for heart disease risk assesment.
                 </p>
 
                 <form action="/predict" method="post" class="diagnostic-form">
@@ -127,13 +127,13 @@
                 </form>
 
                 <footer class="legal-note">
-                    Legal Disclaimer: This automated tool is for clinical support and preliminary screening only. High-stakes medical decisions must be verified by a licensed cardiologist.
+                   Project Information: Developed by Your Kalpajit Saikia under the guidance of Bidyut Bora as part of a Machine Learning Internship at Epitome. 
                 </footer>
             </section>
 
             <aside class="insight-panel">
                 <section class="result-box">
-                    <div class="result-icon">MED</div>
+                    <div class="result-icon">🫀</div>
                     <p>Diagnostic Result</p>
                     <div class="result-display {% if prediction_text == 'Heart Disease' %}risk{% elif prediction_text %}clear{% endif %}">
                         {% if prediction_text %}
@@ -171,7 +171,6 @@
                 <section class="performance-section">
                     <div class="section-title-row">
                         <h2>Performance</h2>
-                        <span>Prod</span>
                     </div>
                     <div class="metric-grid">
                         <div class="metric-card">
