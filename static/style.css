@@ -191,8 +191,8 @@ select:focus {
     place-items: center;
     margin-bottom: 28px;
     border-radius: 14px;
-    color: var(--blue);
-    background: var(--blue-soft);
+    color: #ffffff;
+    background: var(--blue);
     font-size: 15px;
     font-weight: 800;
 }
